@@ -6,7 +6,7 @@ import * as Icon from 'react-bootstrap-icons';
 
 const EditItem = ({ item, id }) => {
   const [updateItem, setUpdateItem] = useState({ name: item.name, qty: item.qty, units: item.units, location: item.location})
-  const [createDate, setCreateDate] = useState();
+  const [createDate, setCreateDate] = useState("");
   const handleEditChange = (e) => {
     setUpdateItem({ ...updateItem, [e.target.name]: e.target.value });
   };

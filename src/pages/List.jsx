@@ -39,10 +39,10 @@ const List = () => {
           <thead>
             <tr>
               <th scope="col">Item</th>
-            <th scope="col" className="text-center">Qty</th>
+              <th scope="col" className="text-center">Qty</th>
               <th scope="col">Units</th>
-            <th scope="col" className="text-center">Manage</th>
-            <th scope="col" className="text-center">Inventory</th>
+              <th scope="col" className="text-center">Manage</th>
+              <th scope="col" className="text-center">Inventory</th>
             </tr>
           </thead>
           <tbody>
