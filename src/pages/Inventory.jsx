@@ -26,25 +26,25 @@ const Inventory = () => {
   const handleList = (item) => {
     const itemDocument = doc(db, "items", item.id);
     if (item.list === false) {
-      updateDoc(itemDocument, { list: true });
+      updateDoc(itemDocument, { list: true })
     } else {
-      updateDoc(itemDocument, { list: false });
+      updateDoc(itemDocument, { list: false })
     }    
   }
   return (
       <div className="container">
         <div><h3 className="float-start">Inventory</h3>  <AddInventory /></div>       
-      <table className="table caption-top">
-        <caption>Items in inventory. Check item under "Shop" to add to the Shopping List.</caption>
+        <table className="table caption-top">
+          <caption>Items in inventory. Check item under "Shop" to add to the Shopping List.</caption>
           <thead>
             <tr>
-            <th scope="col">Item</th>
-            <th scope="col" className="text-center">Qty</th>
+              <th scope="col">Item</th>
+              <th scope="col" className="text-center">Qty</th>
               <th scope="col">Units</th>
               <th scope="col">Location</th>
               <th scope="col">Expires</th>
-            <th scope="col" className="text-center">Manage</th>
-            <th scope="col" className="text-center">Shop</th>
+              <th scope="col" className="text-center">Manage</th>
+              <th scope="col" className="text-center">Shop</th>
             </tr>
           </thead>
           <tbody>
@@ -57,8 +57,7 @@ const Inventory = () => {
                 <td>{item.expires ? new Date(item.expires.seconds * 1000).toDateString() : 'No Expiration'}</td>
                 <td className="text-center">
                   <EditItem item={item} id={item.id} />
-                  <button type="button" className="btn btn-danger btn-sm ms-1 me-1" onClick={() => deleteItem(item.id)}><Icon.XSquareFill /></button>  
-              
+                  <button type="button" className="btn btn-danger btn-sm ms-1 me-1" onClick={() => deleteItem(item.id)}><Icon.XSquareFill /></button>               
                 </td>
                 <td className="text-center">
                   <button type="button" className={String(item.list) === 'true' ? ('btn btn-success btn-sm') : ('btn btn-light btn-sm')} 

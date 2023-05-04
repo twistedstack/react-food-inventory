@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import List from "./pages/List";
 import NoPage from "./pages/NoPage";
@@ -16,7 +17,9 @@ function App() {
           <Route path="/list" element={<List />} />
           <Route path="*" element={<NoPage />} />
         </Route>
+        
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
