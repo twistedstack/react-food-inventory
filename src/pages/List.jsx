@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { query, collection, where, onSnapshot, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import * as Icon from 'react-bootstrap-icons';
 import AddList from "../components/AddList";
 import EditItem from "../components/EditItem";
 const List = () => {
@@ -32,29 +33,30 @@ const List = () => {
 
   return (
       <div className="container">
-        <div><h3>Shopping List</h3>  <AddList /></div>
-        <table className="table">
+      <div><h3 className="float-start">Shopping List</h3>  <AddList /></div>
+      <table className="table caption-top">
+        <caption>Items in Shopping List. Check item under "Inventory" to quickly receive into inventory. Edit to update all fields before receiving.</caption>
           <thead>
             <tr>
               <th scope="col">Item</th>
-              <th scope="col">Qty</th>
+            <th scope="col" className="text-center">Qty</th>
               <th scope="col">Units</th>
-              <th scope="col">Manage</th>
-              <th scope="col">Inventory</th>
+            <th scope="col" className="text-center">Manage</th>
+            <th scope="col" className="text-center">Inventory</th>
             </tr>
           </thead>
           <tbody>
             {items?.map((item) => (
               <tr key={item.id}>
                 <td>{item.name}</td>
-                <td>{item.qty}</td>
+                <td className="text-center">{item.qty}</td>
                 <td>{item.units}</td>
-                <td>
+                <td className="text-center">
                   <EditItem item={item} id={item.id} />
-                  <button type="button" className="btn btn-danger btn-sm ms-1" onClick={() => deleteItem(item.id)}>Delete</button>
+                  <button type="button" className="btn btn-danger btn-sm ms-1 me-1" onClick={() => deleteItem(item.id)}><Icon.XSquareFill /></button>
                 </td>
-                <td>                 
-                  <button type="button" className="btn btn-success btn-sm" onClick={() => addInventory(item.id)}>Receive</button>
+                <td className="text-center">                 
+                  <button type="button" className="btn btn-success btn-sm" onClick={() => addInventory(item.id)}><Icon.CheckCircle /></button>
                 </td>
               </tr>
             ))}

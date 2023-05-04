@@ -2,10 +2,11 @@ import { useState } from "react";
 import { db } from "../firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import DatePicker from 'react-datepicker';
+import * as Icon from 'react-bootstrap-icons';
 
 const EditItem = ({ item, id }) => {
   const [updateItem, setUpdateItem] = useState({ name: item.name, qty: item.qty, units: item.units, location: item.location})
-  const [createDate, setCreateDate] = useState(new Date());
+  const [createDate, setCreateDate] = useState();
   const handleEditChange = (e) => {
     setUpdateItem({ ...updateItem, [e.target.name]: e.target.value });
   };
@@ -37,7 +38,7 @@ const EditItem = ({ item, id }) => {
   }
   return (
     <>
-      <button type="button" className="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target={`#id${id}`}>Edit</button>
+      <button type="button" className="btn btn-info  btn-sm ms-1 me-1" data-bs-toggle="modal" data-bs-target={`#id${id}`}><Icon.PencilFill /></button>
       <div className="modal fade" id={`id${id}`} tabIndex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <form className="d-flex" onSubmit={(e) => handleSubmitUpdate(e)}>
