@@ -1,6 +1,12 @@
 # React Food Management
 > Food inventory and shopping list app.
 
+## Screenshots
+
+![App Screenshot](ss.png)
+
+## Demo
+
 [DEMO](https://food-project-4b9c2.web.app/)
 
 ## Tools
